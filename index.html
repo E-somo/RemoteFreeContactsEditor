@@ -73,9 +73,6 @@ button {
 
 
 
-
-
-
 button:hover {
   opacity: 0.8;
 }
@@ -226,9 +223,8 @@ span.psw {
 </head>
 <body>
 	
-<h1 id="notsp1">This brouser is not supported by our platform please use google chrome or later </h1>
+<h1 id="notsp1"  style="font-size:50px;color:red;"    >This brouser is not supported by our platform please use google chrome or later </h1>
 
-<h1 id="notsp">not suported </h1>
 
 <h2>click the button below to find your membership</h2>
 
@@ -454,14 +450,9 @@ span.psw {
     <h3 id="success-msg" style="text-align: center !important; margin-top:190px !important; display:none; color:#fff"> Your Request has been posted to Google Spreadsheet</h3>
     
     <script>
-     
-	    
-document.getElementById("notsp1").style.display = "none";
-document.getElementById("notsp").style.display = "none";
+     ShowIEAlert();
+	    document.getElementById("notsp1").style.display = "none";
 
-
-
-ShowIEAlert();
 
 function isIE() {
     const ua = window.navigator.userAgent; //Check the userAgent property of the window.navigator object
@@ -472,31 +463,18 @@ function isIE() {
 }
 
 
-//function to show alert if it's IE
 function ShowIEAlert(){
     if(isIE()){
        
        document.getElementById("notsp1").style.display = "block";
       
-      setInterval(function() {alert("User is using IE");
+     alert("User is using IE");
       
-      
-      let text = "This brouser is not supported by our platform please use google chrome or later";
-let result = text.fontcolor("red");
-document.getElementById("notsp").innerHTML = result;
-      
-        var x = document.getElementById("notsp");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-        
-        
-      }, 2000);
-       
+              
     }
-}    
+}
+
+
 	          
      function newenv() {
     let storeduseM =localStorage.getItem("userAccount2");
@@ -1254,4 +1232,3 @@ myEmail();
  </script>
 </body>
 </html>
-
