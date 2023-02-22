@@ -1,155 +1,1211 @@
-
-
--<style>
-h1 {text-align: center;}
-p {text-align: center;}
-a {text-align: center;}
-</style>
-
-
-<h1 style="background-color: green;">                                     Hello ! <br>  From T-Smart solution Ltd! <br> Corrected  Entrepreneurship   National examinations Text Book Download pages </h1>
-<p> <br> Welcome to the E-Somo V1 download page this is an artificial intelligence-enabled application that helps the learner 
-   to smartly  learn effortlessly. <br> By using this interactive app you will get a chance of doing many national examinations by simulation,
-   with direct feedback which will help the learner to quickly gain the required knowledge and skills.  <br>   <br> 
-   Below are link for downloading the printable TextBook ( Entrepreneurship   past national  examinations Questions and answers) for Offline learning,<br> 
-  N.B   You will get a link after successful login .<br>
-        </p>
-
-
-
-
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-<meta charset="UTF-8">
-<title>JJS</title> 
-</head> 
-<body> <input type="text" placeholder="Enter name here" Id="st">  <br> <br>
- <input type="text" placeholder="Enter name here" Id="st2"> 
-
-<script> 
-
-
-function cond() { 
-var a=document.getElementById("st").value; 
-var av=document.getElementById("st2").value; 
-
-let sum = Number(a) + Number(new Date().getFullYear()) + Number(a);
-
-if(a=="112018") { 
-
- var b = document.createElement('a');
-      var linkText = document.createTextNode("ViP master link");
-      b.appendChild(linkText);
-      b.title = "my google";
-     b.href = "https://e-somo.github.io/Welcome-Page/"; 
-      document.body.appendChild(b);
-
-
-
-} 
-
-else if(av==sum ){ 
-
-
-
-  var a = document.createElement('a');
-      var linkText = document.createTextNode("Good client");
-      a.appendChild(linkText);
-      a.title = "my good ";
-      a.href = "https://e-somo.github.io/Welcome-Page/";
-      document.body.appendChild(a);
-
-
-} 
-
-
-else{ 
-
-      var a = document.createElement('a');
-      var linkText = document.createTextNode("Invalid login");
-      a.appendChild(linkText);
-      a.title = "invalid login ";
-      a.href = "https://ytettet/";
-      document.body.appendChild(linkText);
-   
-  
-
-   
-} }
-
-
-
-</script> 
-<button type="button" onclick="cond()">OK</button> <br><br> <br>
-
-
-</body> 
-</html>  
-
-
-<!DOCTYPE html>
 <html>
 <head>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet" />
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <style>
-#snackbar {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  border-radius: 2px;
-  padding: 16px;
-  position: fixed;
-  z-index: 1;
+
+.buttonload {
+  background-color: #04AA6D; /* Green background */
+  border: #0704aa;; /* Remove borders */
+  color: white; 
+
+  padding: 12px 24px; /* Some padding */
+  font-size: 20px; /* Set a font-size */
+  position: absolute;
   left: 50%;
-  bottom: 30px;
-  font-size: 17px;
+  transform: translateX(-50%);
 }
 
-#snackbar.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
 
-@-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
 }
 
-@keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-@-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
+
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-@keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
+
+
+
+
+
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+ 
+#timer {
+  font-size: 2.5em;
+  font-weight: 60;
+  color: white;
+  text-shadow: 0 0 20px #48c8ff;
+}
+ 
+#timer div {
+  display: inline-block;
+  min-width: 50px;
+  background: #0d1a29;
+  
+}
+ 
+#timer div span {
+  color: #b1cdf1;
+  display: block;
+  font-size: 0.30em;
+  background: #0d1a29;
+  font-weight: 80;
+} 
+
+
+
+#timer2 {
+  font-size: 2.5em;
+  font-weight: 60;
+  color: white;
+  text-shadow: 0 0 20px #48c8ff;
+}
+ 
+#timer2 div {
+  display: inline-block;
+  min-width: 50px;
+  background: #0d1a29;
+  
+}
+ 
+#timer2 div span {
+  color: #b1cdf1;
+  display: block;
+  font-size: 0.30em;
+  background: #0d1a29;
+  font-weight: 80;
+}
+ 
 </style>
+
 </head>
 <body>
 
+<h2>click the button below to find your membership</h2>
 
-<button onclick="myFunction()">Reset</button>
+<div class="loader" id =loaded></div>
+<div> 
+<button onclick="myallfull()">Click me</button>
+</div>
+    <table class="output" id =tabled></table>
+    
+    
+    
+    <h2>Welcome to   www.solution-asp.com</h2>
 
-<div id="snackbar"> Close and Go Back 
+<button onclick="newenv()" class="buttonload"  style="width:auto; font-size:26px;"> Member/Customer Login</button>
+<br> <br><br><br>
+<button   onclick="finguest()"  class="buttonload"    style="width:auto;font-size:26px">  Guest / Free zone Login</button>
 
-<script>
-function myFunction() {
-  var x = document.getElementById("snackbar");
-  x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+<p id="success-msg"  style="width:auto; font-size:26px;">  Your Request has been posted to Our server for future reference</p>
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times; </span>
+   
+     
+    </div>
+      
+    <div class="container">
+      
+       <p id="success-msg"  style="width:auto; font-size:26px;"> <b> OL National Exams Sumulation </b>  </p>  
+     
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  onclick="return postToGoogle();">Start Examination </button>
+
+      
+    </div>
+    
+    
+     <div class="container" style="background-color:#F0F8FF">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer2" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  onclick="myFunction();">Start Examination </button>
+
+ </div>
+
+
+ <div class="container" style="background-color:#F0FFF0">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer2" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  onclick="myFunction();">Start Examination </button>
+      
+    </div>
+    
+    
+    <div class="container" style="background-color:#F0F8FF">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer2" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  onclick="myFunction();">Start Examination </button>
+
+ </div>
+ 
+ 
+  <div class="container" style="background-color:#F0FFF0">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer2" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  onclick="myFunction();">Start Examination </button>
+      
+    </div>
+    
+    
+    <div class="container" style="background-color:#F0F8FF">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer2" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  onclick="myFunction();">Start Examination </button>
+
+ </div>
+ 
+ 
+  <div class="container" style="background-color:#F0FFF0">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer2" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  onclick="return postToGoogle();">Start Examination </button>
+      
+    </div>
+    
+    
+    <div class="container" style="background-color:#F0F8FF">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer2" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  onclick="return postToGoogle();">Start Examination </button>
+
+ </div>
+ 
+  <div class="container" style="background-color:#F0FFF0">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer2" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  onclick="return postToGoogle();">Start Examination </button>
+      
+    </div>
+    
+    
+    <div class="container" style="background-color:#F0F8FF">
+      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+     
+<div id="timer2" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+<button  type="button" onclick="myFunctionprompt()"> by subscriprtion </button>
+<button type="button" onclick="document.getElementById('id01').style.display='block'" class="cancelbtn">GO HOME</button>
+ </div>
+    
+    
+  </form>
+</div>  
+
+
+
+
+<div id="id01" class="modal">
+
+
+  
+  <form class="modal-content animate">
+
+
+<div class="container" style="background-color:green">
+      
+      
+      <button  style="background-color:blue;font-size:12px" type="button" onclick="setNBlangEng()" class="cancelbtn">Eng. <br> <span> <u><i>  How to buy </i></u> </span></button> 
+
+<button  style="background-color:blue;font-size:12px"  type="button" onclick="setNBlangFr()" class="cancelbtn">Frech. <br> <span> <u><i>  comment achete </i></u> </span></button>
+
+
+<button  style="background-color:blue;font-size:12px"  type="button" onclick="setNBlangSwh()" class="cancelbtn">Swah.  <br> <span> <u><i>  How to buy </i></u> </span></button>
+
+<button style="background-color:blue;font-size:12px" type="button" onclick="setNBlangkiny()" class="cancelbtn">Kiny.
+ <br> <span> <u><i>Uko wagura </i></u> </span></button>
+         
+    </div>
+
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="https://github.com/E-somo/logetes2/raw/main/img_avatar2.png" alt="Avatar" class="avatar">
+
+     
+    </div>
+
+
+     <label id =welcclient><b> welcome Dear NDAYISENGA Emmanuel</b></label>
+     
+<div id="timer" style="padding-top: 10px;"></div>
+<label><b> Left on This device for your Licence to Expire</b></label>
+
+    <div class="container">
+      <label for="uname"><b>Your Full Name</b></label>
+      <input type="text"  id="nameField" name="entry.756426811"   placeholder="Enter your Full name" name="uname" required>
+      
+      
+       <label for="uname"><b>Your valid  and active E-mail</b></label>
+      <input type="text"  id="emailField" name="entry.1255196574" placeholder="Enter valid E-mail" name="uname" required>
+      
+         <label for="uname"><b>Your valid Phone number with county code</b></label>
+      <input type="text" id="mobField" name="entry.115509672" placeholder="Ente valid phone numnber eg. +254204242000" name="uname" required>
+      
+      
+      
+      <label for="psw"><b>Enter Your  license  key</b></label>
+      <input type="text"   id="cinema" name="entry.886923831" placeholder="Enter Licence key if not press Get license " name="psw" required>
+        
+      <button  onclick="return postToGoogle();">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+   
+    
+    
+    
+  </form>
+</div> 
+
+
+
+
+
+
+
+
+    
+    <h3 id="success-msg" style="text-align: center !important; margin-top:190px !important; display:none; color:#fff"> Your Request has been posted to Google Spreadsheet</h3>
+    
+    <script>
+     
+     
+     function newenv() {
+    let storeduseM =localStorage.getItem("userAccount2");
+  
+    
+    
+
+       let wtnnM = "what"+storeduseM +"news";
+       var Titledis = "TITLE";
+       var textdis = "SUB";
+       var aseniorMemb ="Register me ASAP";
+       var deniedm="Already member"
+       var incong=0;
+      // shownew();
+      if (wtnnM=="whatnullnews"){
+        Titledis= "Welcome Dear new user !"
+       textdis = "we will set up your account in short time if you are new if you are alreeady member click on already member other wise ckick on Register me ASAP"
+      aseniorMemb ="Already Member"
+      deniedm="Register me ASAP "
+       shownew();
+       }else {
+        incong =1;
+        Titledis= "Welcome Dear " +storeduseM;
+       textdis = " Are You "+storeduseM+ "?";
+       aseniorMemb="No Restore my membership ";
+       deniedm ="yes continue";
+       shownew();
+    
+       }
+
+      
+    alert(storeduseM)
+    var newv = "Emmanuel Ndayisenga";
+    
+function  shownew(){ 
+
+
+Swal.fire({
+  title: " "+Titledis,
+   text: " "+textdis,
+   allowOutsideClick: false,
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: " "+deniedm,
+  denyButtonText: ""+aseniorMemb,
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    //Swal.fire('we will tranfer the licec', '', 'success');
+    if (wtnnM=="whatnullnews") {
+
+      promtnew();
+
+     
+   
+}else {
+  alert(' I will give a full access');
+  alert("Thank you you email "+storeduseM+"is Well Recorded");
+  myMemberin();
+
+ // testme();
+
+
 }
-</script>
 
+  } else if (result.isDenied) {
+   // Swal.fire('Changes are not saved', '', 'info');
+    
+
+    if (incong ==1) {
+
+Swal.fire({
+title: 'Are you sure? \n You are not '+storeduseM,
+text: 'hi', html:"If you are not "+storeduseM+" some thing <b>went wrong </b>then ! Follow these simple proccedures to solve <br> <br> case 1: This is not Your computer <br> ---> solution : change  and <b>use your computer</b> <br> <br> case 2: You changed the brouser <br> ---> Solution change and use the  brouser  you used <b>while Registering </b> <br><br>  case 3: Your  are using the wrong <b>Email</b> <br> --> Solution  sign in using your E-mail and open <u> our website </u> in a <b> new tab</b> You will sign in using your E-mail and Given ATP(All Time pin) <b><br><br></b>",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'Yes, I understand  Thanks!'
+}).then((result) => {
+if (result.isConfirmed) {
+  Swal.fire(
+   
+    'Welcome',
+    'Thank for trying your best! Terms and conditions Apply',
+    'success'
+  )
+}
+})
+
+
+} else {
+
+ //// promtnew();
+
+
+ Swal.fire({
+  title: 'Terms and conditions',
+  text: 'hi', html:"If you are not viewing your user name while you are a customer!  some thing <b>went wrong </b>then ! Follow these simple proccedures to solve <br> <br> case 1: This is not Your computer <br> ---> solution : change  and <b>use your computer</b> <br> <br> case 2: You changed the brouser <br> ---> Solution change and use the  brouser  you used <b>while Registering </b> <br><br>  case 3: Your  are using the wrong <b>Email</b> <br> --> Solution  sign in using your E-mail and open <u> our website </u> in a <b> new tab</b> <b><br><br> case4: <b> option Z <b> If  1, 2, and 3  fail   we are going to transfer your licence here select term and condition and press confirm</b>",
+
+  input: 'checkbox',
+  allowOutsideClick: false,
+  inputValue: 0,
+  inputPlaceholder:
+    'I agree with the terms and conditions',
+  confirmButtonText:
+    'Continue <i class="fa fa-arrow-right"></i>',
+
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: "confirm " ,
+  
+
+  inputValidator: (result) => {
+    return !result && 'You need to agree with T&C'
+  }
+})
+
+.then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+  //  Swal.fire('we will tranfer the licec', '',timer: 30000, 'success');
+  var istop2=0;
+  Swal.fire({
+    allowOutsideClick: false,
+      title: "wait a bit .....",
+      text: 'you will tranfer brought licence indivudually',
+      type: 'success',
+      showCancelButton: false,
+      closeOnConfirm: false,
+      timer: 5000
+    },)
+  
+    setInterval(function() {
+if (istop2<1) {
+//alert('i will call my stuff');
+promtnew();
+istop2 =7}
+}, 8000);  
+
+  }})
+}
+  }
+});
+}
+
+     }
+
+    var navigator_info=window.navigator,screen_info=window.screen,uid=navigator_info.mimeTypes.length;uid+=navigator_info.userAgent.replace(/\D+/g,""),uid+=navigator_info.plugins.length,uid+=screen_info.height||"",uid+=screen_info.width||"",uid+=screen_info.pixelDepth||"";let agent=navigator.userAgent,final1=agent.replace("Mozilla",""),final2=final1.replace("KHTML, like Gecko",""),final3=final2.replace("Chrome",""),final4=final3.replace("Safari",""),final5=final4.replace("AppleWebKit",""),a=final5,encode="";for(let r=0;r<a.length;r++){let e=a.slice(r,r+1);encode+=e.charCodeAt(0)}let conver=encode+uid;result1=conver.slice(-155,-150),result2=conver.slice(-150,-145);var result3=conver.slice(-145,-140),result4=conver.slice(-140,-135),result5=conver.slice(-135,-130),result6=conver.slice(-130,-125),result7=conver.slice(-125,-120),result8=conver.slice(-120,-115),result9=conver.slice(-115,-110),result10=conver.slice(-110,-105),result11=conver.slice(-105,-100),result12=conver.slice(-100,-95),result13=conver.slice(-95,-90),result14=conver.slice(-90,-85),result15=conver.slice(-85,-80),result16=conver.slice(-80,-75),result17=conver.slice(-75,-70),result18=conver.slice(-70,-65),result19=conver.slice(-65,-60),result20=conver.slice(-60,-55),result21=conver.slice(-55,-50),result22=conver.slice(-50,-45),result23=conver.slice(-45,-40),result24=conver.slice(-40,-35),result25=conver.slice(-35,-30),result26=conver.slice(-30,-25),result27=conver.slice(-25,-20),result28=conver.slice(-20,-15),result29=conver.slice(-15,-10),result30=conver.slice(-10,-5),result31=conver.slice(-5,-1),result1=conver.slice(-155,-150),result2=conver.slice(-150,-145);result3=conver.slice(-145,-140),result4=conver.slice(-140,-135),result5=conver.slice(-135,-130),result6=conver.slice(-130,-125),result7=conver.slice(-125,-120),result8=conver.slice(-120,-115),result9=conver.slice(-115,-110),result10=conver.slice(-110,-105),result11=conver.slice(-105,-100),result12=conver.slice(-100,-95),result13=conver.slice(-95,-90),result14=conver.slice(-90,-85),result15=conver.slice(-85,-80),result16=conver.slice(-80,-75),result17=conver.slice(-75,-70),result18=conver.slice(-70,-65),result19=conver.slice(-65,-60),result20=conver.slice(-60,-55),result21=conver.slice(-55,-50),result22=conver.slice(-50,-45),result23=conver.slice(-45,-40),result24=conver.slice(-40,-35),result25=conver.slice(-35,-30),result26=conver.slice(-30,-25),result27=conver.slice(-25,-20),result28=conver.slice(-20,-15),result29=conver.slice(-15,-10),result30=conver.slice(-10,-5),result31=conver.slice(-5,-1),""==result1&&(result1="1111"),""==result2&&(result2="1111"),""==result3&&(result3="1111"),""==result4&&(result4="1111"),""==result5&&(result5="1111"),""==result6&&(result6="1111"),""==result7&&(result7="1111"),""==result8&&(result8="1111"),""==result9&&(result9="1111"),""==result10&&(result10="1111"),""==result11&&(result11="1111"),""==result12&&(result12="1111"),""==result13&&(result13="1111"),""==result14&&(result14="1111"),""==result15&&(result15="1111"),""==result16&&(result16="1111"),""==result17&&(result17="1111"),""==result18&&(result18="1111"),""==result19&&(result19="1111"),""==result20&&(result20="1111"),""==result21&&(result21="1111"),""==result22&&(result22="1111"),""==result23&&(result23="1111"),""==result24&&(result24="1111"),""==result25&&(result25="1111"),""==result26&&(result26="1111"),""==result27&&(result27="1111"),""==result28&&(result28="1111"),""==result29&&(result29="1111"),""==result30&&(result30="1111"),""==result31&&(result31="1111");var resultTot=parseInt(result1)+parseInt(result2)+parseInt(result3)+parseInt(result4)+parseInt(result5)+parseInt(result6)+parseInt(result7)+parseInt(result8)+parseInt(result9)+parseInt(result10)+parseInt(result11)+parseInt(result12)+parseInt(result13)+parseInt(result14)+parseInt(result15)+parseInt(result16)+parseInt(result17)+parseInt(result18)+parseInt(result19)+parseInt(result20)+parseInt(result21)+parseInt(result22)+parseInt(result23)+parseInt(result24)+parseInt(result25)+parseInt(result26)+parseInt(result27)+parseInt(result28)+parseInt(result29)+parseInt(result30)+parseInt(result31);"undefined"!=typeof Storage?(localStorage.setItem("lastDeviceID",resultTot),alert(localStorage.getItem("lastDeviceID"))):alert("You brouser can not accept our  System please change your brurse and enjoy our service Thanks ");
+    
+
+    document.getElementById("welcclient").innerHTML ="Dear client to by license you will use"+(localStorage.getItem("lastDeviceIDFinal"));
+    document.getElementById('success-msg').style.display='none';
+    
+    
+    var limit = 0;
+    var limitzd=0;
+    document.getElementById('loaded').style.display='none';
+
+
+     function     finguest() {
+
+      const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'Welcome Free Guest !',
+  text: "You Will be able to access 1/2 of sample exam , the essence of sample exam is to show you how the model work for future decision Thanks ",
+icon: 'info',
+allowOutsideClick: false,
+  showCancelButton: true,
+  confirmButtonText: 'No, cancel! ',
+  cancelButtonText: ' Yes, Log In !',
+  
+  confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+  
+
+   let timerInterval
+Swal.fire({
+
+
+
+
+  title: 'Wait ......',
+  html: ' Left  <b></b> milliseconds.'+' ',
+  timer: 5000,
+  allowOutsideClick: false,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+    
+  }
+})
+
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+   // swalWithBootstrapButtons.fire(
+    //  'Cancelled',
+    //  'Your imaginary file is safe :)',
+   //   'error'
+   // )
+   
+   let timerInterval
+Swal.fire({
+ 
+  title: 'Wait For Free model Now',
+  html: 'Left <b></b> milliseconds. To connect you to the Free Model',
+  timer: 10000,
+  allowOutsideClick: false,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+    alert("now i am free")
+  }
+})
+
+
+
+  }
+})
+
+     }
+    
+    function myallfull() {
+      findinIt();
+     setTimeout(myFunction, 3000);
+   
+    }
+  function findinIt(){ 
+    
+   document.getElementById('loaded').style.display='block';
+  document.getElementById('tabled').style.display='none';
+    
+//const base = 'https://docs.google.com/spreadsheets/d/1ubQNQZW51-pD1pTdd6CH552lP3nlvq-JAxZRB8vkODc/gviz/tq?';
+
+const base = 'https://docs.google.com/spreadsheets/d/1ubQNQZW51-pD1pTdd6CH552lP3nlvq-JAxZRB8vkODc/gviz/tq?';
+
+
+const output = document.querySelector('.output');
+const query = encodeURIComponent('Select A');
+const url = base + '&tq=' + query;
+    fetch(url)
+    .then(res => res.text())
+    .then(rep =>{
+        const data = JSON.parse(rep.substr(47).slice(0,-2));
+        const row = document.createElement('tr');
+        output.append(row);
+        data.table.cols.forEach((heading)=>{
+            const cell = document.createElement('td');
+            cell.textContent = heading.label;
+            row.append(cell);
+        })
+        data.table.rows.forEach((main)=>{
+            const container = document.createElement('tr');
+            output.append(container);
+            main.c.forEach((ele)=>{
+                const cell = document.createElement('td');
+                cell.textContent = ele.v;
+                
+                let text = cell.textContent;
+                let result = text.includes("mukamwiza16");
+                limitzd=9;
+                 if(result==true) {
+                 alert("tresult is  "+result)
+                 limit=1;
+                 limitzd=9;
+                 }
+              
+                container.append(cell);
+                
+            
+            })
+        })
+        
+        if (limit==0) {
+               alert(" no element found");
+               limitzd=9;
+                 }
+                 
+                 document.getElementById('loaded').style.display='none';
+    })
+     
+      
+    } 
+    
+    
+    
+    function myFunctionprompt() {
+  //document.getElementById('id01').style.display='block';
+  
+  document.getElementById('id02').style.display='block';
+  
+ 
+  }
+
+    
+    
+function myFunction() {
+
+if (limitzd==0) {
+  alert(' this is taking longer time than usual please make sure you have a good internet connection');
+  document.getElementById('loaded').style.display='none';
+  }
+}
+
+
+function updateTimer() {
+  future = Date.parse("dec 2, 2022 11:30:00");
+  now = new Date();
+  diff = future - now;
+ 
+  days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  hours = Math.floor(diff / (1000 * 60 * 60));
+  mins = Math.floor(diff / (1000 * 60));
+  secs = Math.floor(diff / 1000);
+ 
+  d = days;
+  h = hours - days * 24;
+  m = mins - hours * 60;
+  s = secs - mins * 60;
+ 
+  document.getElementById("timer").innerHTML =
+    "<div>" +
+    d +
+    "<span>days</span></div>" +
+    "<div>" +
+    h +
+    "<span>hours</span></div>" +
+    "<div>" +
+    m +
+    "<span>minutes</span></div>" +
+    "<div>" +
+    s +
+    "<span>seconds</span></div>";
+}
+setInterval("updateTimer()", 1000);  
+
+
+
+
+
+function updateTimer2() {
+  future = Date.parse("dec 2, 2022 11:30:00");
+  now = new Date();
+  diff = future - now;
+ 
+  days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  hours = Math.floor(diff / (1000 * 60 * 60));
+  mins = Math.floor(diff / (1000 * 60));
+  secs = Math.floor(diff / 1000);
+ 
+  d = days;
+  h = hours - days * 24;
+  m = mins - hours * 60;
+  s = secs - mins * 60;
+ 
+  document.getElementById("timer2").innerHTML =
+    "<div>" +
+    d +
+    "<span>days</span></div>" +
+    "<div>" +
+    h +
+    "<span>hours</span></div>" +
+    "<div>" +
+    m +
+    "<span>minutes</span></div>" +
+    "<div>" +
+    s +
+    "<span>seconds</span></div>";
+}
+setInterval("updateTimer2()", 1000); 
+
+
+
+function postToGoogle() {
+                var field1 = $("#nameField").val();
+                var field2 = $("#emailField").val()+$("#nameField").val()+ $("#cinema").val()+$("#cinema").val();
+                var field3 = $("#mobField").val();
+                var field4 = $("#cinema").val();
+ 				
+				if(field1 == ""){
+					alert('Please Fill Your Name');
+					document.getElementById("nameField").focus();
+					return false;
+				}
+				if(field2 == ""){
+					alert('Please Fill Your Email');
+					document.getElementById("emailField").focus();
+					return false;
+				}
+				if(field3 == "" || field3.length > 15 || field3.length < 10){
+					alert('Please Fill Your Mobile Number');
+					document.getElementById("mobField").focus();
+					return false;
+				}
+	
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSekS6V4sLcD-_0rk7KxWLdgHjfcTj0igObdnrZlahn_0S0-IQ/formResponse?",
+					data: {"entry.756426811": field1, "entry.1255196574": field2, "entry.115509672": field3, "entry.886923831": field4},
+                    type: "POST",
+                    dataType: "xml",
+                    success: function(d)
+					{
+					},
+					error: function(x, y, z)
+						{
+
+						//	$('#success-msg').show();
+						//	$('#form').hide();
+                        
+                         document.getElementById('success-msg').style.display='block';
+                         document.getElementById('id01').style.display='none';
+    
+							
+						}
+                });
+				return false;
+            }
+
+          var  istop =0;
+ function promtnew() {  
+swal({
+      title: "we need your Email or Phone number !",
+      text: 'write your email or phone number please',
+      type: 'input',
+      allowOutsideClick: false,
+      showCancelButton: true,
+      closeOnConfirm: false,
+      animation: "slide-from-top",
+      inputPlaceholder: "Write E-mail or phone here",
+    },
+    function(inputValue1) {
+      if (inputValue1 === false) return false;
+
+
+  
+      if (inputValue1 === "") {
+        swal.showInputError("You need to write E-mail or phone");
+        return false;
+      }
+
+     swal({
+      title: "Repeat your Email or Phone number ",
+      text: 'your input is '+inputValue1+ ' Is this true? \n If not correct click cancel to correct yourself\n \nIf correct please repeat it down ',
+      type: 'input',
+      allowOutsideClick: false,
+      showCancelButton: true,
+      closeOnConfirm: true,
+      animation: "slide-from-top",
+      inputPlaceholder: "Re-write E-mail or phone",
+    },
+    function(inputValue2) {
+      if (inputValue2 === false) return false;
+
+      if (inputValue2 === "") {
+        swal.showInputError("You need to write E-mail or phone");
+        return false;
+  
+      }
+     // https://github.com/E-somo/downloads/raw/main/greenThumbs.png
+ 
+       if (inputValue2==inputValue1) {  
+        /* 
+swal({
+      title: " Thank you, you are successfully registered ",
+      text: 'Now you are registered for  further process',
+      type: 'input',
+      imageUrl: 'https://github.com/E-somo/downloads/raw/main/greenThumbs.png',
+      showCancelButton: true,
+      closeOnConfirm: false,
+      animation: "slide-from-top",
+      inputPlaceholder: inputValue2,
+      timer: 30000
+    },) */
+
+
+
+    Swal.fire({
+      title: " Thank you, you are successfully registered ",
+      text: 'Now you are registered as  '+inputValue2+' for  further process',
+icon: 'success',
+showCancelButton: false,
+allowOutsideClick: false,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+closeOnConfirm: true,
+confirmButtonText: 'Yes, I understand  Thanks!'
+})
+
+ localStorage.setItem("userAccount2", inputValue2);
+setInterval(function() {
+if (istop<1) {
+alert('i will call my stuff');
+istop =7}
+}, 3000);   
+}     
+        if (inputValue2!=inputValue1) {
+       
+      //swal.fire("Sorry there is a Mismatch! ", 'You wrote first : ' + inputValue1+ '  and then  '+inputValue2+"  which are not the  same , please press cancel and repeat the proccess", "Failed");  
+     
+      Swal.fire({
+      title: "Sorry there is a mismatch !! correct  ",
+      text: 'Your input was at first  '+inputValue1+'  and then '+ inputValue2+" which are different please correct yourself",
+      icon: 'warning',
+showCancelButton: false,
+allowOutsideClick: false,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+closeOnConfirm: true,
+confirmButtonText: 'Yes, I understand let me correct myself'
+}
+
+)
+    } 
+       
+    });
+
+    });
+
+    }
+
+
+    
+    
+
+function  myMemberin(){ 
+
+//let storeduseM =localStorage.getItem("userFnMail7");
+
+//let wtnnM = "what"+storeduseM +"news";
+
+let storeduseM =localStorage.getItem("userAccount2");
+
+alert(storeduseM);
+ 
+
+//if (wtnnM=="whatnullnews"){
+
+ // var myName = prompt("To activate you, we need your valid and active email \n write down your email: \n \n  Pour vous activer, nous avons besoin de votre email valide et actif \n notez votre email:\n\n Andika imeri yawe: \n \n Andika E-mail yako ","")
+  
+  // var myAge = prompt("Repeat your E-mail:\n\n Repete Votre E-mail :\n Musubiremo E-mail Yanyu : \n Rudia E-mail yako","");
+  
+  
+  if (storeduseM !="null") { 
+  
+
+  alert("Thank you you email "+storeduseM+"is Well Recorded");
+  
+    let amail = storeduseM;
+ 
+let encodemail = '';
+for (let i = 0; i < amail.length; i++) {
+  let x = amail.slice(i, i+1);
+  encodemail += x.charCodeAt(0);
+}
+
+ 
+let mresult1;
+let mresult2;
+let mresult3;
+let mresult4;
+let mresult5;
+let mresult6;
+let mresult7;
+let mresult8;
+let mresult9;
+let mresult10;
+let mresult11;
+let mresult12;
+let mresult13;
+
+mresult1=encodemail.slice(-5,-1);
+mresult2=encodemail.slice(-10,-5);
+mresult3=encodemail.slice(-15,-10);
+mresult4=encodemail.slice(-20,-15);
+mresult5=encodemail.slice(-25,-20);
+mresult6=encodemail.slice(-30,-25);
+mresult7=encodemail.slice(-35,-30);
+mresult8=encodemail.slice(-40,-35);
+mresult9=encodemail.slice(-45,-40);
+mresult10=encodemail.slice(-50,-45);
+mresult11=encodemail.slice(-55,-50);
+mresult12=encodemail.slice(-60,-55);
+mresult13=encodemail.slice(-65,-60);
+
+
+
+ if(mresult1==""){
+result1="1111";
+} 
+ if(mresult2==""){mresult2="1111";} 
+ if(mresult3==""){mresult3="1111";} 
+ if(mresult4==""){mresult4="1111";} 
+ if(mresult5==""){mresult5="1111";} 
+ if(mresult6==""){mresult6="1111";} 
+ if(mresult7==""){mresult7="1111";} 
+ if(mresult8==""){mresult8="1111";} 
+ if(mresult9==""){mresult9="1111";} 
+ if(mresult10==""){mresult10="1111";} 
+ if(mresult11==""){mresult11="1111";} 
+ if(mresult12==""){mresult12="1111";} 
+ if(mresult13==""){mresult13="1111";} 
+
+
+var  mresultTot =parseInt(mresult1)+parseInt(mresult2)+parseInt(mresult3)+parseInt(mresult4)+parseInt(mresult5)+parseInt(mresult6)+parseInt(mresult7)+parseInt(mresult8)+parseInt(mresult9)+parseInt(mresult10)+parseInt(mresult11)+parseInt(mresult12)+parseInt(mresult13);
+
+alert (mresultTot);
+
+ var finalId = parseInt(mresultTot)+parseInt(localStorage.getItem("lastDeviceID"));
+
+
+alert ("pk dvov"+localStorage.getItem("lastDeviceID"));
+  
+  localStorage.setItem("lastDeviceIDFinal",finalId);
+
+alert(" final mathh "+(localStorage.getItem("lastDeviceIDFinal")));
+  
+myFunctionprompt();
+
+    } else {
+alert(" your resigeration is not succcfull is inside module ");
+//myEmail();
+}
+
+  
+ // } else {
+ // myFunctionprompt(); 
+ // }
+  
+} 
+function myEmail()  {
+var myName = prompt("To activate you, we need your valid and active email \n write down your email: \n \n  Pour vous activer, nous avons besoin de votre email valide et actif \n notez votre email:\n\n Andika imeri yawe: \n \n Andika E-mail yako ","")
+  
+  var myAge = prompt("Repeat your E-mail:\n\n Repete Votre E-mail :\n Musubiremo E-mail Yanyu : \n Rudia E-mail yako","");
+  
+  
+  
+  
+        if (myName==myAge & myAge !="" & (myAge.includes("@") || ((myAge.includes("0"))|| (myAge.includes("1"))||(myAge.includes("2"))|| (myAge.includes("3"))||(myAge.includes("4"))|| (myAge.includes("5"))||(myAge.includes("6"))|| (myAge.includes("7"))) )) { 
+  
+localStorage.setItem("userFnMail7", myName);
+let storeduse =localStorage.getItem("userFnMail7");
+
+  alert("Thank you you email "+storeduse+"is Well Recorded");
+  
+  
+  let amail = storeduse;
+ 
+let encodemail = '';
+for (let i = 0; i < amail.length; i++) {
+  let x = amail.slice(i, i+1);
+  encodemail += x.charCodeAt(0);
+}
+
+ 
+let mresult1;
+let mresult2;
+let mresult3;
+let mresult4;
+let mresult5;
+let mresult6;
+let mresult7;
+let mresult8;
+let mresult9;
+let mresult10;
+let mresult11;
+let mresult12;
+let mresult13;
+
+mresult1=encodemail.slice(-5,-1);
+mresult2=encodemail.slice(-10,-5);
+mresult3=encodemail.slice(-15,-10);
+mresult4=encodemail.slice(-20,-15);
+mresult5=encodemail.slice(-25,-20);
+mresult6=encodemail.slice(-30,-25);
+mresult7=encodemail.slice(-35,-30);
+mresult8=encodemail.slice(-40,-35);
+mresult9=encodemail.slice(-45,-40);
+mresult10=encodemail.slice(-50,-45);
+mresult11=encodemail.slice(-55,-50);
+mresult12=encodemail.slice(-60,-55);
+mresult13=encodemail.slice(-65,-60);
+
+
+
+ if(mresult1==""){
+result1="1111";
+} 
+ if(mresult2==""){mresult2="1111";} 
+ if(mresult3==""){mresult3="1111";} 
+ if(mresult4==""){mresult4="1111";} 
+ if(mresult5==""){mresult5="1111";} 
+ if(mresult6==""){mresult6="1111";} 
+ if(mresult7==""){mresult7="1111";} 
+ if(mresult8==""){mresult8="1111";} 
+ if(mresult9==""){mresult9="1111";} 
+ if(mresult10==""){mresult10="1111";} 
+ if(mresult11==""){mresult11="1111";} 
+ if(mresult12==""){mresult12="1111";} 
+ if(mresult13==""){mresult13="1111";} 
+
+
+var  mresultTot =parseInt(mresult1)+parseInt(mresult2)+parseInt(mresult3)+parseInt(mresult4)+parseInt(mresult5)+parseInt(mresult6)+parseInt(mresult7)+parseInt(mresult8)+parseInt(mresult9)+parseInt(mresult10)+parseInt(mresult11)+parseInt(mresult12)+parseInt(mresult13);
+
+alert (mresultTot);
+  
+  var finalId = parseInt(mresultTot)+parseInt(localStorage.getItem("lastDeviceID"));
+
+  alert ("pk dvov"+localStorage.getItem("lastDeviceID"));
+  
+  localStorage.setItem("lastDeviceIDFinal",finalId);
+
+alert(" final mathh "+(localStorage.getItem("lastDeviceIDFinal")));
+    } else {
+alert("There is a mismatch in your e-mail write it well and write your full e-mail \n \n Il y a une incohérence dans votre e-mail, écrivez-le bien en écrivant votre E-mail complet \n \nHano ntaho bihuriye na e-imeri yawe iyandike neza wandike e-imeri yawe yuzuye ");
+myEmail();
+}
+}
+ 
+ </script>
 </body>
 </html>
+
