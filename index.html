@@ -24,6 +24,27 @@
 }
 
 
+.vertical-buttons {
+  flex-direction: column;
+}
+
+.top-margin {
+  margin-top: .5em;
+}
+
+
+.btnx-group button2 {
+  background-color: blue; /* Green background */
+  border: 8px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 15px 30px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+   left: 50%;
+  font-size:22px;
+    position: relative;
+  float: left; /* Float the buttons side by side */
+}
+
 
 .loader {
   border: 16px solid #f3f3f3;
@@ -265,14 +286,17 @@ span.psw {
 <div id="timer" style="padding-top: 10px;"></div>
 <label><b> Left on This device for your Licence to Expire</b></label>
 
-<button  onclick="return postToGoogle();">Start Examination </button>
-
-      
-    </div>
-    
-    
-     <div class="container" style="background-color:#F0F8FF">
-      <label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
+<button  id="mebio" > b bio btn Start Examination </button>
+<div class="btnx-group" id="mbioby">
+  <button2>alredy member ?</button2>
+  <button2 onclick="log1in()">Click to buy</button2>
+</div>
+      <br>
+    </div> 
+    <br>
+<div class="container" style="background-color:#F0F8FF">
+  <br>
+<label><b>Biology  National Exam Simulator <br> <br> From 2002 - 2022</b></label>
      
 <div id="timer2" style="padding-top: 10px;"></div>
 <label><b> Left on This device for your Licence to Expire</b></label>
@@ -310,7 +334,7 @@ span.psw {
 <div id="timer2" style="padding-top: 10px;"></div>
 <label><b> Left on This device for your Licence to Expire</b></label>
 
-<button  onclick="myFunction();">Start Examination </button>
+<button  onclick="myFunction();" id="biost"> bio Start Examination </button>
       
     </div>
     
@@ -368,6 +392,7 @@ span.psw {
 <button type="button" onclick="document.getElementById('id01').style.display='block'" class="cancelbtn">GO HOME</button>
  </div>
     
+ 
     
   </form>
 </div>  
@@ -475,7 +500,22 @@ function ShowIEAlert(){
 }
 
 
-	          
+
+     let stomebio  = "plch"+localStorage.getItem("userbio");
+    
+
+          let resbio  = stomebio.includes("bbio");
+
+          alert("checbbio"+resbio);
+         if(resbio == true) {
+          document.getElementById('mbioby').style.display='blok';
+         } else
+	         {
+             document.getElementById('mebio').style.display='none';
+
+             document.getElementById('mbioby').style.display='blok';
+
+            }
      function newenv() {
     let storeduseM =localStorage.getItem("userAccount2");
   
@@ -514,9 +554,12 @@ function  shownew(){
 
 Swal.fire({
   title: " "+Titledis,
-   text: " "+textdis,
+  text: " "+textdis,
+   imageUrl: 'https://raw.githubusercontent.com/E-somo/downloads/main/elearning.gif',
    allowOutsideClick: false,
+   
   showDenyButton: true,
+
   showCancelButton: true,
   confirmButtonText: " "+deniedm,
   denyButtonText: ""+aseniorMemb,
@@ -933,13 +976,17 @@ function postToGoogle() {
  function promtnew() {  
 swal({
       title: "we need your Email or Phone number !",
-      text: 'write your email or phone number please',
+      text: 'write your email or phone number please and click Ok',
       type: 'input',
       allowOutsideClick: false,
-      showCancelButton: true,
       closeOnConfirm: false,
+      showCancelButton: true,
       animation: "slide-from-top",
       inputPlaceholder: "Write E-mail or phone here",
+      customClass: {
+    actions: 'vertical-buttons',
+    cancelButton: 'bottom-margin'
+  }
     },
     function(inputValue1) {
       if (inputValue1 === false) return false;
@@ -953,31 +1000,33 @@ swal({
 
      swal({
       title: "Repeat your Email or Phone number ",
-      text: 'your input is '+inputValue1+ ' Is this true? \n If not correct click cancel to correct yourself\n \nIf correct please repeat it down ',
+      text: 'your input is '+inputValue1+ ' Is this true? \n If not correct click cancel to correct yourself\n \nIf correct please repeat it down and click ok',
       type: 'input',
       allowOutsideClick: false,
-      showCancelButton: true,
       closeOnConfirm: true,
+      showCancelButton: true,
+    
       animation: "slide-from-top",
       inputPlaceholder: "Re-write E-mail or phone",
     },
     function(inputValue2) {
-      if (inputValue2 === false) return false;
+      if (inputValue2.trim() === false) return false;
 
-      if (inputValue2 === "") {
+      if (inputValue2.trim() === "") {
         swal.showInputError("You need to write E-mail or phone");
         return false;
   
       }
      // https://github.com/E-somo/downloads/raw/main/greenThumbs.png
  
-       if (inputValue2==inputValue1) {  
+       if (inputValue2.trim()==inputValue1.trim()) {  
         /* 
 swal({
       title: " Thank you, you are successfully registered ",
       text: 'Now you are registered for  further process',
       type: 'input',
       imageUrl: 'https://github.com/E-somo/downloads/raw/main/greenThumbs.png',
+     imageUrl: 'https://github.com/E-somo/downloads/raw/main/mouseCl.gif',
       showCancelButton: true,
       closeOnConfirm: false,
       animation: "slide-from-top",
@@ -999,14 +1048,14 @@ closeOnConfirm: true,
 confirmButtonText: 'Yes, I understand  Thanks!'
 })
 
- localStorage.setItem("userAccount2", inputValue2);
+ localStorage.setItem("userAccount2", inputValue2.trim());
 setInterval(function() {
 if (istop<1) {
 alert('i will call my stuff');
 istop =7}
 }, 3000);   
 }     
-        if (inputValue2!=inputValue1) {
+        if (inputValue2.trim()!=inputValue1.trim()) {
        
       //swal.fire("Sorry there is a Mismatch! ", 'You wrote first : ' + inputValue1+ '  and then  '+inputValue2+"  which are not the  same , please press cancel and repeat the proccess", "Failed");  
      
@@ -1140,95 +1189,95 @@ alert(" your resigeration is not succcfull is inside module ");
  // }
   
 } 
-function myEmail()  {
-var myName = prompt("To activate you, we need your valid and active email \n write down your email: \n \n  Pour vous activer, nous avons besoin de votre email valide et actif \n notez votre email:\n\n Andika imeri yawe: \n \n Andika E-mail yako ","")
-  
-  var myAge = prompt("Repeat your E-mail:\n\n Repete Votre E-mail :\n Musubiremo E-mail Yanyu : \n Rudia E-mail yako","");
-  
-  
-  
-  
-        if (myName==myAge & myAge !="" & (myAge.includes("@") || ((myAge.includes("0"))|| (myAge.includes("1"))||(myAge.includes("2"))|| (myAge.includes("3"))||(myAge.includes("4"))|| (myAge.includes("5"))||(myAge.includes("6"))|| (myAge.includes("7"))) )) { 
-  
-localStorage.setItem("userFnMail7", myName);
-let storeduse =localStorage.getItem("userFnMail7");
 
-  alert("Thank you you email "+storeduse+"is Well Recorded");
-  
-  
-  let amail = storeduse;
+
+var texlng=0;
+
+
+    
+function log1in() {
+     
+  var  txtinf ="";
+  if (texlng==0) {
+  txtinf = "Biology Payment Form  dial \n *584*333*"+(localStorage.getItem("lastDeviceIDFinal"))+"# pay 4000frw of one year \n or dial *584*311*paycode"+(localStorage.getItem("lastDeviceIDFinal"))+"# for one day license";
+  }
+ // document.getElementById("login").value = useridf;
+
+ let storeduseM =localStorage.getItem("userAccount2");
+  Swal.fire({
+ title: txtinf,
  
-let encodemail = '';
-for (let i = 0; i < amail.length; i++) {
-  let x = amail.slice(i, i+1);
-  encodemail += x.charCodeAt(0);
+  // text: "",
+   html: `<p>Dear user your you will by your license by dealing on on MTN-Rwanda the given code  and follow prompt to pay for one year Biology National Examination sumulator license or dial  the code  for  500frw for one day license on this computer  <br> <br> N.B  you must have at least 10Frw of Aitime balance for MTN to connect you with our company and buy from You MoMo </p> <input type="text" id="login" class="swal2-input" placeholder="user email ">
+  <input type="password" id="password" class="swal2-input" placeholder="Password">`,
+  showDenyButton: true,
+  showCancelButton: true,
+  allowOutsideClick: false,
+  confirmButtonText: 'Activate Now',
+  focusConfirm: false,
+  denyButtonText: "More Payment ",
+  
+  preConfirm: () => {
+   // const login = Swal.getPopup().querySelector('#login').value
+   const login = document.getElementById("login").value;
+   // const password = Swal.getPopup().querySelector('#password').value
+   const password =  document.getElementById("password").value;
+   const valpaidbio = (parseInt(localStorage.getItem("lastDeviceIDFinal")))+1111111;
+    
+   var yearNowph  = password;
+   var digs=yearNowph.slice(-2);
+ var datein=yearNowph.slice(-4,-2);
+ var motin=yearNowph.slice(-6,-4);
+  var yrIn=yearNowph.slice(-8,-6);
+  
+
+var onestop=  parseInt(datein)+ parseInt(motin)+parseInt(yrIn);
+// alert("slice"+onestop)
+
+   var inserv=  yearNowph.replace(yrIn+motin+datein+digs,"").trim();
+   alert(inserv);
+   alert(valpaidbio);
+   alert(login)
+  
+  // var    vapini=""+valpaidbio+""+resformy+""+resforMt+""+resfordate;
+    if ( valpaidbio!= inserv) {
+      Swal.showValidationMessage(`Please Enter a valid key shyiramo urufunguzo nyarwo`)
+        alert(inserv+"and"+valpaidbio);
+    } 
+       else if( storeduseM!=login|| digs!=onestop){
+
+        Swal.showValidationMessage(`Please Enter  well know E-mail!  the one know is `+storeduseM)
+       }
+    
+  
+    else  {
+                   alert("ok now")
+      Swal.fire({
+title: 'Thanks ',
+imageUrl: 'https://raw.githubusercontent.com/E-somo/downloads/main/elearning.gif',
+ 
+  confirmButtonText: 'Activate Now',
+  focusConfirm: false,
+})
+    } 
+    return { login: login, password: password }
+  }
+}).then((result) => {
+  ///Swal.fire(`
+   /// Login: ${result.value.login}
+  //  Password: ${result.value.password}
+///  `.trim()) 
+
+if (result.isDenied) { 
+
+alert("denied good")
+
+document.getElementById('id01').style.display='block';
 }
 
- 
-let mresult1;
-let mresult2;
-let mresult3;
-let mresult4;
-let mresult5;
-let mresult6;
-let mresult7;
-let mresult8;
-let mresult9;
-let mresult10;
-let mresult11;
-let mresult12;
-let mresult13;
+})
 
-mresult1=encodemail.slice(-5,-1);
-mresult2=encodemail.slice(-10,-5);
-mresult3=encodemail.slice(-15,-10);
-mresult4=encodemail.slice(-20,-15);
-mresult5=encodemail.slice(-25,-20);
-mresult6=encodemail.slice(-30,-25);
-mresult7=encodemail.slice(-35,-30);
-mresult8=encodemail.slice(-40,-35);
-mresult9=encodemail.slice(-45,-40);
-mresult10=encodemail.slice(-50,-45);
-mresult11=encodemail.slice(-55,-50);
-mresult12=encodemail.slice(-60,-55);
-mresult13=encodemail.slice(-65,-60);
-
-
-
- if(mresult1==""){
-result1="1111";
-} 
- if(mresult2==""){mresult2="1111";} 
- if(mresult3==""){mresult3="1111";} 
- if(mresult4==""){mresult4="1111";} 
- if(mresult5==""){mresult5="1111";} 
- if(mresult6==""){mresult6="1111";} 
- if(mresult7==""){mresult7="1111";} 
- if(mresult8==""){mresult8="1111";} 
- if(mresult9==""){mresult9="1111";} 
- if(mresult10==""){mresult10="1111";} 
- if(mresult11==""){mresult11="1111";} 
- if(mresult12==""){mresult12="1111";} 
- if(mresult13==""){mresult13="1111";} 
-
-
-var  mresultTot =parseInt(mresult1)+parseInt(mresult2)+parseInt(mresult3)+parseInt(mresult4)+parseInt(mresult5)+parseInt(mresult6)+parseInt(mresult7)+parseInt(mresult8)+parseInt(mresult9)+parseInt(mresult10)+parseInt(mresult11)+parseInt(mresult12)+parseInt(mresult13);
-
-alert (mresultTot);
-  
-  var finalId = parseInt(mresultTot)+parseInt(localStorage.getItem("lastDeviceID"));
-
-  alert ("pk dvov"+localStorage.getItem("lastDeviceID"));
-  
-  localStorage.setItem("lastDeviceIDFinal",finalId);
-
-alert(" final mathh "+(localStorage.getItem("lastDeviceIDFinal")));
-    } else {
-alert("There is a mismatch in your e-mail write it well and write your full e-mail \n \n Il y a une incohérence dans votre e-mail, écrivez-le bien en écrivant votre E-mail complet \n \nHano ntaho bihuriye na e-imeri yawe iyandike neza wandike e-imeri yawe yuzuye ");
-myEmail();
 }
-}
- 
  </script>
 </body>
 </html>
