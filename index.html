@@ -63,6 +63,7 @@ Dashboard
             <button class="styled-button" onclick="showImageAlert()">Remotely Add/Edit  <br> <br> contacts For Group Message</button>
             <button class="styled-button" onclick="showGoogleSheetAlert()"> Remotely customize   <br> <br>Indidualized Bulky SMS  </button>
         </div>
+        <button onclick="showLoginModal()">Login as A client Instead ??? </button>
     </div>
 
 
@@ -70,7 +71,9 @@ Dashboard
     var field1 = "not";
     var field2 = "not";
     var field3 = "not";
-    var fieldSerch="get";
+    var fieldSerch="get"; 
+
+    showLoginModal();
     
 function showImageAlert() {
     Swal.fire({
@@ -633,6 +636,31 @@ function caesarCipherEncrypt(input, shift) {
     }
 
 
+
+    
+
+
+    function openLink() {
+            window.location.href = "https://e-somo.github.io/Remote_control/";
+        }
+
+        function showLoginModal() {
+            Swal.fire({
+                title: 'Login Method',
+                text: 'This form is for Free acess . If you are a  client, please choose an option For clients : ',
+                showCancelButton: true,
+                confirmButtonText: 'I am a client',
+                cancelButtonText: 'Free Access'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  
+                    openLink();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    // Handle "Free Access" button click
+                   
+                }
+            });
+        }
 
           
     </script>
