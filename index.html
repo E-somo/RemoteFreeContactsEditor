@@ -159,34 +159,33 @@ function showVideoAlert() {
         } 
         
         
-         function openForm() {
-            Swal.fire({
-                title: 'Enter Your desired login data',
-                html:
-                    ' <p> Enter your Email in  field  below  </p> <input id="field1" class="swal2-input" placeholder="Your Email  ">' +
-                      '<br> Enter Any 7 number PIN You must rember this  <input id="field2" type="password" class="swal2-input" placeholder="Your PIN here ">' +
-     
-                    '<p> If you are Human write the answer is below field  0.25+0.25+0.25+0.25 +50000 = ?   <input id="field3" class="swal2-input" placeholder="Enter Answer here ">  <P> <b> N.B </b>  This form is designed for updating contacts for  <b> sending bulk messages. via android App/ or SBMA </b> <br> If you intend to send the same message to multiple contacts simultaneously, please proceed.<p> ',
-                focusConfirm: false,
-                showCancelButton: true,
-                confirmButtonText: 'Submit',
-                preConfirm: () => {
-                     field1 = Swal.getPopup().querySelector('#field1').value;
-                     field2 = Swal.getPopup().querySelector('#field2').value;
-                     field3 = Swal.getPopup().querySelector('#field3').value;
+      function openForm() {
+    Swal.fire({
+        title: 'Enter Your desired login data',
+        html:
+            ' <p> Enter your Email in the field below </p> <input id="field1" class="swal2-input" placeholder="Your Email  ">' +
+            '<br> Enter Any 7-number PIN You must remember this  <input id="field2" type="password" class="swal2-input" placeholder="Your PIN here ">' +
+            '<p> If you are Human, write the answer to the following equation: 0.25 + 0.25 + 0.25 + 0.25 + 50000 = ?   <input id="field3" class="swal2-input" placeholder="Enter Answer here ">  </p>' +
+            '<p> <b>N.B.</b> This form is designed for updating contacts for <b>sending bulk messages via the Android App or SBMA</b>. If you intend to send the same message to multiple contacts simultaneously, please proceed.</p>',
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        preConfirm: () => {
+            const field1 = Swal.getPopup().querySelector('#field1').value;
+            const field2 = Swal.getPopup().querySelector('#field2').value;
+            const field3 = Swal.getPopup().querySelector('#field3').value;
 
-                     if (field1.length > 6 && field1.includes("@") && field2.length === 7 && field3 === "50001") {
-    // reportTask(field1, field2, field3);
-    fieldSerch  = field1 + field2 + field3;
-    
-    checkUpdate();
-} else {
-                        Swal.showValidationMessage('Feel free to log in as a genuine human.');
-                        return false;
-                    }
-                }
-            });
+            if (field1.length > 6 && field1.includes("@") && !isNaN(field2) && field2.length === 7 && field3 === "50001") {
+                const fieldSearch = field1 + field2 + field3;
+                checkUpdate(fieldSearch);
+            } else {
+                Swal.showValidationMessage('Please provide valid login data.');
+                return false;
+            }
         }
+    });
+}
+
         
         
         
