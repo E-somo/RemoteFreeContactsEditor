@@ -72,6 +72,7 @@ Dashboard
     var field2 = "not";
     var field3 = "not";
     var fieldSerch="get"; 
+    var fieldcore ="nen";
 
     showLoginModal();
     
@@ -159,7 +160,7 @@ function showVideoAlert() {
         } 
         
         
-      function openForm() {
+         function openForm() {
     Swal.fire({
         title: 'Enter Your desired login data',
         html:
@@ -171,26 +172,23 @@ function showVideoAlert() {
         showCancelButton: true,
         confirmButtonText: 'Submit',
         preConfirm: () => {
-            const field1 = Swal.getPopup().querySelector('#field1').value;
-            const field2 = Swal.getPopup().querySelector('#field2').value;
-            const field3 = Swal.getPopup().querySelector('#field3').value;
+           field1 = Swal.getPopup().querySelector('#field1').value;
+            field2 = Swal.getPopup().querySelector('#field2').value;
+             field3 = Swal.getPopup().querySelector('#field3').value;
 
             if (field1.length > 6 && field1.includes("@") && !isNaN(field2) && field2.length === 7 && field3 === "50001") {
                 const fieldSearch = field1 + field2 + field3;
                 checkUpdate(fieldSearch);
             } else {
-                Swal.showValidationMessage('Please provide valid login data.');
+                Swal.showValidationMessage('Please provide valid login data. your Pin must a Number and your answer must be correct');
                 return false;
             }
         }
     });
-}
-
-        
-        
+}   
         
     function openForm2() {
-    Swal.fire({
+          Swal.fire({
         title: 'Enter Your SBMA Credentials',
         html:
         ' <p> Enter your Email in the field below </p> <input id="field1" class="swal2-input" placeholder="Your Email  ">' +
@@ -201,22 +199,20 @@ function showVideoAlert() {
         showCancelButton: true,
         confirmButtonText: 'Submit',
         preConfirm: () => {
-            const field1 = Swal.getPopup().querySelector('#field1').value;
-            const field2 = Swal.getPopup().querySelector('#field2').value;
-            const field3 = Swal.getPopup().querySelector('#field3').value;
+             field1 = Swal.getPopup().querySelector('#field1').value;
+             field2 = Swal.getPopup().querySelector('#field2').value;
+             field3 = Swal.getPopup().querySelector('#field3').value;
 
             if (field1.length > 6 && field1.includes("@") && !isNaN(field2) && field2.length === 7 && field3 === "50001") {
-                const fieldSearch = field1 + field2 + field3;
+                fieldSearch = field1 + field2 + field3;
                 checkUpdate2(fieldSearch);
             } else {
-                Swal.showValidationMessage('Please provide valid credentials.');
+                Swal.showValidationMessage('Please provide valid login data. your Pin must a Number and your answer must be correct');
                 return false;
             }
         }
     });
 }
-
-        
         
     
        function reportTask(field1, field2, field3) {
@@ -243,7 +239,9 @@ function showVideoAlert() {
         
         
          function reportTask2(field1, field2, field3) {
-            fetch('https://docs.google.com/forms/d/1WGl_fce_0s_yMuaOkEeXPviHF-ZYJioVT-HQUxl734c/formResponse', {
+          //  fetch('https://docs.google.com/forms/d/1WGl_fce_0s_yMuaOkEeXPviHF-ZYJioVT-HQUxl734c/formResponse', {
+            fetch('https://docs.google.com/forms/d/1yZpTspU-8xo14iueaVfixaIyGlZKxS5jostXVay0tMA/formResponse', {
+           
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -290,13 +288,14 @@ function handleResponse(response) {
         const columnBValues = rows.map(row => row.c[0] ? row.c[0].v : null);
 
        // const targetValue = "examplexxcField";
-                  const targetValue =fieldSerch;
+       fieldSerch =field1+field2;
+                  const targetValue =fieldSerch+"normal";
         const rowIndex = columnBValues.findIndex(value => value && value.includes(targetValue));
 
         if (rowIndex !== -1) {
             const rowData = rows[rowIndex].c.map(cell => cell ? cell.v : null);
             const alertMessage = `${rows[rowIndex].c[0].v}`;
-			alert(alertMessage);
+			//alert(alertMessage);
 
             // Extract sheet ID and GID from the alertMessage
             const pattern = /\/spreadsheets\/d\/(.*?)\/edit#gid=(\d+)/;
@@ -362,10 +361,10 @@ const match = modifiedMessage.match(pattern);
   let middlePosition = Math.floor(secondString.length / 2);
 
   let resultString = secondString.slice(0, middlePosition) + originalString + secondString.slice(middlePosition);
+  fieldSerch =field1+field2;
 
-
-            const fieldcore = fieldSerch + "" +resultString ;
-            reportTask(fieldcore, field2, field3);
+           fieldcore = fieldSerch + "normal" +resultString ;
+            reportTask(fieldcore, field1, field2);
             startLoading();
             
         } else {
@@ -401,11 +400,11 @@ const match = modifiedMessage.match(pattern);
 
 
 
-
+  fieldSerch =field1+field2;
 
         
-         const fieldcore = fieldSerch+ "" + resultString;
-         reportTask(fieldcore, field2, field3);
+         fieldcore = fieldSerch+ "normal" + resultString;
+         reportTask(fieldcore, field1, field2);
          startLoading();
          
  Swal.fire({
@@ -434,8 +433,9 @@ const match = modifiedMessage.match(pattern);
 
 
   function checkUpdate2() {
-    const base = "https://docs.google.com/spreadsheets/d/1Ubls41BXJrucx-Ssru6LIa-5FUHps3c5Juk2QG09q38/gviz/tq?gid=1821970000";
-    const query = "Select B, C, D";
+   // const base = "https://docs.google.com/spreadsheets/d/1Ubls41BXJrucx-Ssru6LIa-5FUHps3c5Juk2QG09q38/gviz/tq?gid=1821970000";
+   const base = "https://docs.google.com/spreadsheets/d/11OHe5oM4mX3lDDO1k7BgFGFZbwxRWIMVyw-cOoshCHU/gviz/tq?gid=2063468632";
+   const query = "Select B, C, D";
     const url = base + "&tq=" + encodeURIComponent(query);
 
     fetch(url)
@@ -458,13 +458,14 @@ function handleResponse2(response) {
         const columnBValues = rows.map(row => row.c[0] ? row.c[0].v : null);
 
        // const targetValue = "examplexxcField";
-                  const targetValue =fieldSerch;
+       fieldSerch =field1+field2;
+                  const targetValue =fieldSerch+"custo";
         const rowIndex = columnBValues.findIndex(value => value && value.includes(targetValue));
 
         if (rowIndex !== -1) {
             const rowData = rows[rowIndex].c.map(cell => cell ? cell.v : null);
             const alertMessage = `${rows[rowIndex].c[0].v}`;
-			alert(alertMessage);
+			//alert(alertMessage);
 
             // Extract sheet ID and GID from the alertMessage
             const pattern = /\/spreadsheets\/d\/(.*?)\/edit#gid=(\d+)/;
@@ -532,10 +533,10 @@ const match = modifiedMessage.match(pattern);
 
   let resultString = secondString.slice(0, middlePosition) + originalString + secondString.slice(middlePosition);
 
+  fieldSerch =field1+field2;
 
-
-            const fieldcore = fieldSerch + "" + resultString;
-            reportTask2(fieldcore, field2, field3);
+         fieldcore = fieldSerch + "custo" + resultString;
+            reportTask2(fieldcore, field1, field2);
             startLoading();
         } else {
             // Handle the case where the user cancels or closes the alert
@@ -568,9 +569,11 @@ const match = modifiedMessage.match(pattern);
   let middlePosition = Math.floor(secondString.length / 2);
 
   let resultString = secondString.slice(0, middlePosition) + originalString + secondString.slice(middlePosition);
+  
+  fieldSerch =field1+field2;
         
-         const fieldcore = fieldSerch+ "" + resultString;
-         reportTask2(fieldcore, field2, field3);
+        fieldcore = fieldSerch+ "custo" + resultString;
+         reportTask2(fieldcore, field1, field2);
          startLoading();
          
  Swal.fire({
@@ -615,8 +618,8 @@ function caesarCipherEncrypt(input, shift) {
         function startLoading() {
         // Show loading spinner
         Swal.fire({
-            title: 'Loading',
-            html: 'Please wait...',
+            title: 'Please wait..... ',
+            html: 'If your link is not submitted within 5 seconds, please click OK to start over and remember to paste the correct link',
             allowOutsideClick: true,
             onBeforeOpen: () => {
                 Swal.showLoading();
