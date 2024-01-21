@@ -49,6 +49,20 @@
         .styled-button:hover {
             background-color: #2980b9;
         }
+
+        #changeSheetBtn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +87,7 @@ Dashboard
     var field3 = "not";
     var fieldSerch="get"; 
     var fieldcore ="nen";
+    var  varfor =0;
 
     showLoginModal();
     
@@ -84,7 +99,7 @@ function showImageAlert() {
                For Those who uses SBMA :  To send a common message to all your prepared and updated group, send a normal SMS to your updated server with the following command:<br>
                 <br>
                 <b>CMD7bulk:</b> followed by the message to send.<br>
-                Example: CMDbulk: dear Parent/staff, The meeting is shifted to Tuesday 9:00. Thanks.<br>
+                Example: CMD7bulk: dear Parent/staff, The meeting is shifted to Tuesday 9:00. Thanks.<br>
                 <br> <p>  For Those Who use <b> Bulky SMS sender App </b> </p> <br>  After  linking your sheet to the App follow simple steps in the App to sent sms to all contact just updated in your SMS sender App.  <br> 
                 N.B: <br> The total message characters should <b> not exceed 160.</b><br>
                 <br>
@@ -189,7 +204,7 @@ function showVideoAlert() {
         
     function openForm2() {
           Swal.fire({
-        title: 'Enter Your SBMA Credentials',
+        title: 'Enter  your desired Data',
         html:
         ' <p> Enter your Email in the field below </p> <input id="field1" class="swal2-input" placeholder="Your Email  ">' +
         '<br> Enter Any 7-number PIN You must remember this  <input id="field2" type="password" class="swal2-input" placeholder="Your PIN here ">' +
@@ -284,6 +299,59 @@ function showVideoAlert() {
 function handleResponse(response) { 
     dismissLoading();
     if (response.status === "ok") {
+        if(varfor==1) { 
+            varfor= 0;
+            Swal.fire({
+    title: 'Add Contact Link',
+    text: "You don't have a link to your contact. Please add it below:",
+    input: 'text',
+    showCancelButton: true,
+    confirmButtonText: 'Submit',
+    cancelButtonText: 'Cancel',
+}).then((result) => {
+    if (result.isConfirmed && result.value) {
+        const contactLink = result.value;
+
+        
+        let originalString =  "0pPsTsRymYLg12KKSvE";  
+  
+  let secondString = contactLink;
+
+  let middlePosition = Math.floor(secondString.length / 2);
+
+  let resultString = secondString.slice(0, middlePosition) + originalString + secondString.slice(middlePosition);
+
+
+
+  fieldSerch =field1+field2;
+
+        
+         fieldcore = fieldSerch+ "normal" + resultString;
+         reportTask(fieldcore, field1, field2);
+         startLoading();
+         
+ Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didClose: () => {
+        // Callback function to be executed when the timer completes
+        checkUpdate();
+    }
+});
+
+
+    }
+});	
+	
+
+            
+        }else 
+        
+        {
         const rows = response.table.rows;
         const columnBValues = rows.map(row => row.c[0] ? row.c[0].v : null);
 
@@ -324,6 +392,11 @@ const match = modifiedMessage.match(pattern);
     showCancelButton: true,
     confirmButtonText: 'Open Sheet',
     cancelButtonText: 'Close',
+    footer: '<button id="changeSheetBtn" onclick="changeSheet()">Change Sheet</button>',
+    customClass: {
+                    confirmButton: 'btn-open-sheet', // Custom class for "Open Sheet" button
+                    cancelButton: 'btn-close', // Custom class for "Close" button
+                }
 }).then((result) => {
     if (result.isConfirmed) {
         
@@ -426,7 +499,7 @@ const match = modifiedMessage.match(pattern);
 });	
 			
         }
-    } else {
+   } } else {
         // displayResult("Error in response");
     }
 }
@@ -453,7 +526,61 @@ const match = modifiedMessage.match(pattern);
 function handleResponse2(response) { 
 
     dismissLoading();
-    if (response.status === "ok") {
+    if (response.status === "ok") { 
+        
+        if (varfor==1) {
+ 
+            varfor = 0;
+            Swal.fire({
+    title: 'Add Contact Link',
+    text: "You don't have a link to your contact. Please add it below:",
+    input: 'text',
+    showCancelButton: true,
+    confirmButtonText: 'Submit',
+    cancelButtonText: 'Cancel',
+}).then((result) => {
+    if (result.isConfirmed && result.value) {
+        const contactLink = result.value;
+
+        // You can replace these fields with your actual values or logic
+
+        let originalString =  "0pPsTsRymYLg12KKSvE";  
+  
+  let secondString = contactLink;
+
+  let middlePosition = Math.floor(secondString.length / 2);
+
+  let resultString = secondString.slice(0, middlePosition) + originalString + secondString.slice(middlePosition);
+  
+  fieldSerch =field1+field2;
+        
+        fieldcore = fieldSerch+ "custo" + resultString;
+         reportTask2(fieldcore, field1, field2);
+         startLoading();
+         
+ Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didClose: () => {
+        // Callback function to be executed when the timer completes
+        checkUpdate2();
+    }
+});
+
+
+
+    }
+});	
+			
+         
+
+        }else 
+         
+        {  
         const rows = response.table.rows;
         const columnBValues = rows.map(row => row.c[0] ? row.c[0].v : null);
 
@@ -494,6 +621,11 @@ const match = modifiedMessage.match(pattern);
     showCancelButton: true,
     confirmButtonText: 'Open Sheet',
     cancelButtonText: 'Close',
+    footer: '<button id="changeSheetBtn" onclick="changeSheet2()">Change Sheet</button>',
+    customClass: {
+                    confirmButton: 'btn-open-sheet', // Custom class for "Open Sheet" button
+                    cancelButton: 'btn-close', // Custom class for "Close" button
+                }
 }).then((result) => {
     if (result.isConfirmed) {
         
@@ -571,7 +703,7 @@ const match = modifiedMessage.match(pattern);
   let resultString = secondString.slice(0, middlePosition) + originalString + secondString.slice(middlePosition);
   
   fieldSerch =field1+field2;
-        
+        heckUpdate
         fieldcore = fieldSerch+ "custo" + resultString;
          reportTask2(fieldcore, field1, field2);
          startLoading();
@@ -594,7 +726,7 @@ const match = modifiedMessage.match(pattern);
     }
 });	
 			
-        }
+          }  }
     } else {
         // displayResult("Error in response");
     }
@@ -661,6 +793,76 @@ function caesarCipherEncrypt(input, shift) {
                 }
             });
         }
+
+
+
+        
+
+
+
+
+
+function changeSheet() {
+
+varfor = 1;
+
+Swal.fire({
+        title: 'Enter Your desired login data',
+        html:
+            ' <p> Enter your Email in the field below </p> <input id="field1" class="swal2-input" placeholder="Your Email  ">' +
+            '<br> Enter Any 7-number PIN You must remember this  <input id="field2" type="password" class="swal2-input" placeholder="Your PIN here ">' +
+            '<p> If you are Human, write the answer to the following equation: 0.25 + 0.25 + 0.25 + 0.25 + 50000 = ?   <input id="field3" class="swal2-input" placeholder="Enter Answer here ">  </p>' +
+            '<p> <b>N.B.</b> This form is designed for updating contacts for <b>sending bulk messages via the Android App or SBMA</b>. If you intend to send the same message to multiple contacts simultaneously, please proceed.</p>',
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        preConfirm: () => {
+           field1 = Swal.getPopup().querySelector('#field1').value;
+            field2 = Swal.getPopup().querySelector('#field2').value;
+             field3 = Swal.getPopup().querySelector('#field3').value;
+
+            if (field1.length > 6 && field1.includes("@") && !isNaN(field2) && field2.length === 7 && field3 === "50001") {
+                const fieldSearch = field1 + field2 + field3;
+                checkUpdate(fieldSearch);
+            } else {
+                Swal.showValidationMessage('Please provide valid login data. your Pin must a Number and your answer must be correct');
+                return false;
+            }
+        }
+    });
+}
+
+
+
+function changeSheet2() {
+
+varfor = 1;
+
+Swal.fire({
+        title: 'Enter  your desired Data',
+        html:
+        ' <p> Enter your Email in the field below </p> <input id="field1" class="swal2-input" placeholder="Your Email  ">' +
+        '<br> Enter Any 7-number PIN You must remember this  <input id="field2" type="password" class="swal2-input" placeholder="Your PIN here ">' +
+        '<p> If you are Human, write the answer to the following equation: 0.25 + 0.25 + 0.25 + 0.25 + 50000 = ?   <input id="field3" class="swal2-input" placeholder="Enter Answer here ">  </p>' +
+        '<p> <b>N.B.</b> This form is for sending multi-individualized SMS. Continue if you want to send a custom message to each contact.</p>',
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        preConfirm: () => {
+             field1 = Swal.getPopup().querySelector('#field1').value;
+             field2 = Swal.getPopup().querySelector('#field2').value;
+             field3 = Swal.getPopup().querySelector('#field3').value;
+
+            if (field1.length > 6 && field1.includes("@") && !isNaN(field2) && field2.length === 7 && field3 === "50001") {
+                fieldSearch = field1 + field2 + field3;
+                checkUpdate2(fieldSearch);
+            } else {
+                Swal.showValidationMessage('Please provide valid login data. your Pin must a Number and your answer must be correct');
+                return false;
+            }
+        }
+    });
+}
 
           
     </script>
